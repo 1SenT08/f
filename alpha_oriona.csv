@@ -1,0 +1,231 @@
+import pygame
+from random import choice
+
+
+figures = [ [['ooooo',
+                  'ooooo',
+                  'ooxxo',
+                  'oxxoo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'ooxxo',
+                  'oooxo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'ooooo',
+                  'ooxxo',
+                  'oxxoo'],
+                 ['ooooo',
+                  'oxooo',
+                  'oxxoo',
+                  'ooxoo'
+                  'ooooo']],
+           [['ooooo',
+                  'ooooo',
+                  'oxxoo',
+                  'ooxxo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'oxxoo',
+                  'oxooo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'ooooo',
+                  'oxxoo',
+                  'ooxxo'],
+                 ['ooooo',
+                  'oooxo',
+                  'ooxxo',
+                  'ooxoo',
+                  'ooooo']],
+           [['ooooo',
+                  'oxooo',
+                  'oxxxo',
+                  'ooooo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxxo',
+                  'ooxoo',
+                  'ooxoo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'oxxxo',
+                  'oooxo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'ooxoo',
+                  'oxxoo',
+                  'ooooo']],
+           [['ooooo',
+                  'oooxo',
+                  'oxxxo',
+                  'ooooo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'ooxoo',
+                  'ooxxo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'oxxxo',
+                  'oxooo',
+                  'ooooo'],
+                 ['ooooo',
+                  'oxxoo',
+                  'ooxoo',
+                  'ooxoo',
+                  'ooooo']],
+           [['ooxoo',
+                  'ooxoo',
+                  'ooxoo',
+                  'ooxoo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'xxxxo',
+                  'ooooo',
+                  'ooooo']],
+           [['ooooo',
+                  'ooooo',
+                  'oxxoo',
+                  'oxxoo',
+                  'ooooo']],
+           [['ooooo',
+                  'ooxoo',
+                  'oxxxo',
+                  'ooooo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'ooxxo',
+                  'ooxoo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooooo',
+                  'oxxxo',
+                  'ooxoo',
+                  'ooooo'],
+                 ['ooooo',
+                  'ooxoo',
+                  'oxxoo',
+                  'ooxoo',
+                  'ooooo']]]
+
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255),(0, 255, 255), (255, 0, 255), (255, 255, 0)]
+figure_list = []
+
+
+class Tetris:
+    def __init__(self, width, height, size_square=30):
+        self.width = width
+        self.height = height
+        self.board = [[0] * width for _ in range(height)]
+
+    def render_cup(self, screen):
+        for j in range(self.height):
+            y1 = j * self.size_square + self.top
+            y2 = self.size_square
+            for i in range(self.width):
+                x1 = i * self.size_square + self.left
+                x2 = self.size_square
+                pygame.draw.rect(screen, pygame.Color(255, 255, 255), (x1, y1, x2, y2), 1)
+
+    def set_view(self, left, top, size_square):
+        self.left = left
+        self.top = top
+        self.size_square = size_square
+
+    def view_figure(self):
+        return [choice(figures)[0], choice(colors)]
+
+    def render_figure_falling(self, data_figure, screen, pos_x, pos_y, size, flag=False):
+        count_y = 0
+        for i in data_figure[0]:
+            count_x = 0
+            for j in i:
+                if j == 'x':
+                    pygame.draw.rect(screen, data_figure[1], (pos_x + count_x * size, pos_y + size * count_y, size, size))
+                    if flag:
+                        figure_list.append([pos_x + count_x * size, pos_y + size * count_y, data_figure[1]])
+
+                count_x += 1
+            count_y += 1
+
+
+
+    def render_figures(self, list_coords, size, screen):
+        for i in list_coords:
+            pygame.draw.rect(screen, i[-1], (i[0], i[1], size, size))
+
+#    def get_cell(self, mouse_pos):
+#        cell_x = (mouse_pos[0] - self.left) // self.size_square
+#        cell_y = (mouse_pos[1] - self.top) // self.size_square
+#        if cell_x < 0 or cell_x >= self.width or cell_y < 0 or cell_y >= self.height:
+#            return None
+#        return cell_x, cell_y
+
+
+def main():
+    pygame.init()
+    size = 750, 850
+    screen = pygame.display.set_mode(size)
+    pygame.display.set_caption('Тетрис')
+    tetris = Tetris(10, 20)
+    size_square = 30
+    tetris.set_view(size[0] // 2 - 5 * size_square, size[1] - 20 * size_square, size_square)
+
+    running = True
+    v = 190
+    fps = 10
+    clock = pygame.time.Clock()
+
+    pos_x_figure = size[0] // 2 - 3 * size_square
+    pos_y_figure = size[1] - 23 * size_square
+
+    flag = False
+    figure = tetris.view_figure()
+    next_figure = tetris.view_figure()
+
+    while running:
+        if flag:
+            tetris.render_figure_falling(figure, screen, pos_x_figure, pos_y_figure, size_square, flag)
+            pos_x_figure = size[0] // 2 - 3 * size_square
+            pos_y_figure = size[1] - 23 * size_square
+            figure = next_figure
+            next_figure = tetris.view_figure()
+            flag = False
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    pos_x_figure += 30
+                elif event.key == pygame.K_LEFT:
+                    pos_x_figure -= 30
+                elif event.key == pygame.K_UP:
+                    pass
+        screen.fill((0, 0, 0))
+        tetris.render_cup(screen)
+        tetris.render_figure_falling(figure, screen, pos_x_figure, pos_y_figure, size_square)
+        tetris.render_figures(figure_list, size_square, screen)
+        if pos_y_figure <= 720:
+            pos_y_figure += v / fps
+        else:
+            flag = True
+
+        clock.tick(fps)
+        pygame.display.flip()
+    pygame.quit()
+
+
+if __name__ == '__main__':
+    main()

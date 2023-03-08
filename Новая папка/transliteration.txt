@@ -1,0 +1,328 @@
+import sys
+from PyQt5 import uic  # Импортируем uic
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QPushButton
+from PyQt5.QtGui import QPixmap
+
+
+moves_made = []
+qwerty = [0]
+
+
+def radius_moves(n_1):
+    if n_1 <= 168 and n_1 >= 0:
+        return False
+
+    else:
+        return True
+
+
+def wall_or_road(number, side):
+    wal = [0, 1, 7, 8, 9, 13, 17, 18, 19, 21, 25, 27, 28, 29, 33, 35, 37, 39, 43, 45, 46, 51, 53, 55, 59, 62, 64, 65,
+           67, 69, 71, 72, 73, 83, 87, 88, 89, 90, 92, 96, 98, 100, 105, 106, 109, 110, 114, 116, 117, 122, 127, 128,
+           135, 136, 138, 141, 144, 145, 146, 148, 152, 165, 166]
+    not_up = [i for i in range(0, 14)]
+    not_under = [i for i in range(154, 168)]
+    not_left = [i for i in range(0, 156, 14)]
+    not_right = [i for i in range(13, 168, 14)]
+    if side == 'up':
+        if number not in not_up:
+            if (number - 14) in wal or radius_moves(number - 14):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'under':
+        if number not in not_under:
+            if (number + 14) in wal or radius_moves(number + 14):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'left':
+        if number not in not_left:
+            if (number - 1) in wal or radius_moves(number - 1):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'right':
+        if number not in not_right:
+            if (number + 1) in wal or radius_moves(number + 1):
+                return False
+        else:
+            return False
+        return True
+
+
+def mob_shading(n, hp):
+    if n == 4 or n == 139 or n == 47 or n == 157 or n == 126 or n == 66:
+        if hp - 15 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 15
+        elif hp - 15 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 57 or n == 111:
+        if hp - 20 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 20
+        elif hp - 20 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 93 or n == 12 or n == 130 or n == 158:
+        if hp - 35 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 35
+        elif hp - 35 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 147:
+        if hp - 75 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 75
+        elif hp - 75 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    else:
+        return 0
+
+
+class Start_window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('game_labyrinth_start_window_1.ui', self)
+        self.setWindowTitle('Начальное окно')
+        self.game.clicked.connect(self.open_game_window)
+        self.setting.clicked.connect(self.open_setting_window)
+        self.history.clicked.connect(self.open_history_window)
+
+    def open_game_window(self):
+        self.game_window = Labyrinth_game(self)
+        self.game_window.show()
+
+    def open_history_window(self):
+        self.history_window = History(self)
+        self.history_window.show()
+
+    def open_setting_window(self):
+        self.game_window = Setting(self)
+        self.game_window.show()
+
+
+class Labyrinth_game(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('game_labyrinth_game_window_2.ui', self)
+        self.wall = [self.l1, self.l2, self.l3, self.l4, self.l5, self.l6, self.l7, self.l8, self.l9, self.l10,
+                     self.l11, self.l12, self.l13, self.l14, self.l15, self.l16, self.l17, self.l18, self.l19,
+                     self.l20, self.l21, self.l22, self.l23, self.l24, self.l25, self.l26, self.l27, self.l28,
+                     self.l29, self.l30, self.l31, self.l32, self.l33, self.l34, self.l35, self.l36, self.l37,
+                     self.l38, self.l39, self.l40, self.l41, self.l42, self.l43, self.l44, self.l45, self.l46,
+                     self.l47, self.l48, self.l49, self.l50, self.l51, self.l52, self.l53, self.l54, self.l55,
+                     self.l56, self.l57, self.l58, self.l59, self.l60, self.l61, self.l62, self.l63, self.l64,
+                     self.l65, self.l66, self.l67, self.l68, self.l69, self.l70, self.l71, self.l72, self.l73,
+                     self.l74, self.l75, self.l76, self.l77, self.l78, self.l79, self.l80, self.l81, self.l82,
+                     self.l83, self.l84, self.l85, self.l86, self.l87, self.l88, self.l89, self.l90, self.l91,
+                     self.l92, self.l93, self.l94, self.l95, self.l96, self.l97, self.l98, self.l99, self.l100,
+                     self.l101, self.l102, self.l103, self.l104, self.l105, self.l106, self.l107, self.l108,
+                     self.l109, self.l110, self.l111, self.l112, self.l113, self.l114, self.l115, self.l116,
+                     self.l117, self.l118, self.l119, self.l120, self.l121, self.l122, self.l123, self.l124,
+                     self.l125, self.l126, self.l127, self.l128, self.l129, self.l130, self.l131, self.l132,
+                     self.l133, self.l134, self.l135, self.l136,
+                     self.l137, self.l138, self.l139, self.l140, self.l141, self.l142, self.l143, self.l144,
+                     self.l145, self.l146, self.l147, self.l148, self.l149, self.l150, self.l151, self.l152,
+                     self.l153, self.l154, self.l155, self.l156, self.l157, self.l158, self.l159, self.l160,
+                     self.l161, self.l162, self.l163, self.l164, self.l165, self.l166, self.l167, self.l168]
+        self.amount_hp = 100
+        self.damage = 0
+        self.number_initial_move = 14
+        self.number_of_moves = 0
+        self.setWindowTitle('Лабиринт')
+        self.death = Death(self)
+        self.win = Win(self)
+        self.event_1 = Event_1(self)
+        self.hp_dop = 0
+
+        self.pixmap_1 = QPixmap('pixil-frame-0 (1).png')
+        self.l15.setPixmap(self.pixmap_1)
+        self.pixmap_2 = QPixmap('pixil-frame-1.png')
+        self.heart = QPixmap('123.png')
+        self.label_2.setPixmap(self.heart)
+
+        self.flittermouses = QPixmap('pixil-frame-0 (3.png')
+        for i in [4, 139, 47, 157, 126, 66]:
+            self.wall[i].setPixmap(self.flittermouses)
+
+        self.dog = QPixmap('псы.png')
+        for i in [57, 111]:
+            self.wall[i].setPixmap(self.dog)
+
+        self.vampire = QPixmap('вампир.png')
+        for i in [93, 12, 130, 158]:
+            self.wall[i].setPixmap(self.vampire)
+
+        self.aristocrat_vampire = QPixmap('Аристократ вампир.png')
+        for i in [147]:
+            self.wall[i].setPixmap(self.aristocrat_vampire)
+
+        self.up.clicked.connect(self.move_up)
+        self.under.clicked.connect(self.move_under)
+        self.left.clicked.connect(self.move_left)
+        self.right.clicked.connect(self.move_right)
+
+
+    def move_up(self):
+        if wall_or_road(self.number_initial_move, 'up'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move - 14].setPixmap(self.pixmap_1)
+            self.number_initial_move -= 14
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            self.label_3.setText(str(self.amount_hp))
+            if self.amount_hp <= 0:
+                self.death.show()
+            if self.number_initial_move == 101:
+                self.event_1.show()
+#                self.amount_hp += int(self.event_1.name)
+#                self.label_3.setText(str(self.amount_hp))
+
+
+    def move_under(self):
+        if wall_or_road(self.number_initial_move, 'under'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move + 14].setPixmap(self.pixmap_1)
+            self.number_initial_move += 14
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            self.label_3.setText(str(self.amount_hp))
+            if self.amount_hp <= 0:
+                self.death.show()
+            if self.number_initial_move == 101:
+                self.event_1.show()
+#                self.amount_hp += int(self.event_1.name)
+#                self.label_3.setText(str(self.amount_hp))
+
+
+    def move_left(self):
+        if wall_or_road(self.number_initial_move, 'left'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move - 1].setPixmap(self.pixmap_1)
+            self.number_initial_move -= 1
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            if self.amount_hp <= 0:
+                self.death.show()
+            if self.number_initial_move == 101:
+                self.event_1.show()
+            if len(qwerty) > 1 and :
+                self.amount_hp += qwerty[1]
+
+            self.label_3.setText(str(self.amount_hp))
+
+    def move_right(self):
+        if wall_or_road(self.number_initial_move, 'right'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move + 1].setPixmap(self.pixmap_1)
+            self.number_initial_move += 1
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            self.label_3.setText(str(self.amount_hp))
+            if self.amount_hp <= 0:
+                self.death.show()
+            if self.number_initial_move == 101:
+                self.event_1.show()
+#                self.amount_hp += int(self.event_1.name)
+#                self.label_3.setText(str(self.amount_hp))
+
+
+class Death(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('Потрачено...')
+
+
+class Setting(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('Настройки')
+
+
+class History(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('История')
+
+
+class Win(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('Победа')
+
+
+#def event_1():
+#    app1 = QApplication(sys.argv)
+#    e1 = Event_1()
+#    e1.show()
+#    sys.exit(app1.exec_())
+
+#class Event_assistant():
+#    def __init__(self):
+#        self.event_1 = Event_1(self)
+#        self.name2 = self.event_1.name
+
+
+class Event_1(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(300, 300, 370, 50)
+
+        self.one = QLineEdit(self)
+        self.one.move(10, 10)
+        self.one.resize(120, 25)
+
+        self.mini = QPushButton('->', self)
+        self.mini.move(140, 10)
+        self.mini.resize(25, 25)
+        self.mini.clicked.connect(self.work)
+
+    def work(self):
+        a = self.one.text()
+        asdasd(int(a))
+        self.close()
+
+
+def asdasd(a):
+    qwerty.append(a)
+
+def except_hook(cls, exception, traceback):
+    sys.__excepthook__(cls, exception, traceback)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Start_window()
+    ex.show()
+    sys.excepthook = except_hook
+    sys.exit(app.exec_())

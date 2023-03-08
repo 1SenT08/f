@@ -1,0 +1,468 @@
+C:\pythonProject7\Scripts\python.exe C:/Users/Немгировы/PycharmProjects/pythonProject7/main.py
+<Response [200]> <class 'requests.models.Response'>
+{'response': {'GeoObjectCollection': {'featureMember': [{'GeoObject': {'Point': {'pos': '44.269759 '
+                                                                                        '46.307743'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.146204 '
+                                                                                                                 '46.265219',
+                                                                                                  'upperCorner': '44.365313 '
+                                                                                                                 '46.377174'}},
+                                                                       'description': 'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'area',
+                                                                                                                                             'name': 'городской '
+                                                                                                                                                     'округ '
+                                                                                                                                                     'Элиста'},
+                                                                                                                                            {'kind': 'locality',
+                                                                                                                                             'name': 'Элиста'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          'Элиста'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               'Элиста',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'SubAdministrativeArea': {'Locality': {'LocalityName': 'Элиста'},
+                                                                                                                                                                                                 'SubAdministrativeAreaName': 'городской '
+                                                                                                                                                                                                                              'округ '
+                                                                                                                                                                                                                              'Элиста'}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'locality',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         'Элиста'}},
+                                                                       'name': 'Элиста'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.172022 '
+                                                                                        '46.33295'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '43.779306 '
+                                                                                                                 '46.241714',
+                                                                                                  'upperCorner': '44.824927 '
+                                                                                                                 '47.459661'}},
+                                                                       'description': 'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'hydro',
+                                                                                                                                             'name': 'река '
+                                                                                                                                                     'Элиста'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          'река '
+                                                                                                                                          'Элиста'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               'река '
+                                                                                                                                                               'Элиста',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'Locality': {'Premise': {'PremiseName': 'река '
+                                                                                                                                                                                                               'Элиста'}}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'hydro',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         'река '
+                                                                                                                         'Элиста'}},
+                                                                       'name': 'река '
+                                                                               'Элиста'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.282533 '
+                                                                                        '46.327617'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.274304 '
+                                                                                                                 '46.321916',
+                                                                                                  'upperCorner': '44.290761 '
+                                                                                                                 '46.333317'}},
+                                                                       'description': 'Северо-Кавказская '
+                                                                                      'железная '
+                                                                                      'дорога, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'route',
+                                                                                                                                             'name': 'Северо-Кавказская '
+                                                                                                                                                     'железная '
+                                                                                                                                                     'дорога'},
+                                                                                                                                            {'kind': 'railway_station',
+                                                                                                                                             'name': 'станция '
+                                                                                                                                                     'Элиста'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Северо-Кавказская '
+                                                                                                                                          'железная '
+                                                                                                                                          'дорога, '
+                                                                                                                                          'станция '
+                                                                                                                                          'Элиста'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Северо-Кавказская '
+                                                                                                                                                               'железная '
+                                                                                                                                                               'дорога, '
+                                                                                                                                                               'станция '
+                                                                                                                                                               'Элиста',
+                                                                                                                                                'Country': {'Locality': {}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'railway_station',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Северо-Кавказская '
+                                                                                                                         'железная '
+                                                                                                                         'дорога, '
+                                                                                                                         'станция '
+                                                                                                                         'Элиста'}},
+                                                                       'name': 'станция '
+                                                                               'Элиста'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.330629 '
+                                                                                        '46.369308'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.291193 '
+                                                                                                                 '46.364824',
+                                                                                                  'upperCorner': '44.360021 '
+                                                                                                                 '46.378566'}},
+                                                                       'description': 'городской '
+                                                                                      'округ '
+                                                                                      'Элиста, '
+                                                                                      'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'area',
+                                                                                                                                             'name': 'городской '
+                                                                                                                                                     'округ '
+                                                                                                                                                     'Элиста'},
+                                                                                                                                            {'kind': 'airport',
+                                                                                                                                             'name': 'аэропорт '
+                                                                                                                                                     'Элиста'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          'городской '
+                                                                                                                                          'округ '
+                                                                                                                                          'Элиста, '
+                                                                                                                                          'аэропорт '
+                                                                                                                                          'Элиста'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               'городской '
+                                                                                                                                                               'округ '
+                                                                                                                                                               'Элиста, '
+                                                                                                                                                               'аэропорт '
+                                                                                                                                                               'Элиста',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'SubAdministrativeArea': {'Locality': {'DependentLocality': {'DependentLocalityName': 'аэропорт '
+                                                                                                                                                                                                                                                             'Элиста'}},
+                                                                                                                                                                                                 'SubAdministrativeAreaName': 'городской '
+                                                                                                                                                                                                                              'округ '
+                                                                                                                                                                                                                              'Элиста'}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'airport',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         'городской '
+                                                                                                                         'округ '
+                                                                                                                         'Элиста, '
+                                                                                                                         'аэропорт '
+                                                                                                                         'Элиста'}},
+                                                                       'name': 'аэропорт '
+                                                                               'Элиста'}},
+                                                        {'GeoObject': {'Point': {'pos': '43.660063 '
+                                                                                        '45.794394'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '42.209167 '
+                                                                                                                 '44.074946',
+                                                                                                  'upperCorner': '44.703474 '
+                                                                                                                 '48.66736'}},
+                                                                       'description': 'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'vegetation',
+                                                                                                                                             'name': 'Государственная '
+                                                                                                                                                     'защитная '
+                                                                                                                                                     'лесополоса '
+                                                                                                                                                     'Черкесск-Элиста-Волгоград'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Государственная '
+                                                                                                                                          'защитная '
+                                                                                                                                          'лесополоса '
+                                                                                                                                          'Черкесск-Элиста-Волгоград'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Государственная '
+                                                                                                                                                               'защитная '
+                                                                                                                                                               'лесополоса '
+                                                                                                                                                               'Черкесск-Элиста-Волгоград',
+                                                                                                                                                'Country': {'Locality': {'Premise': {'PremiseName': 'Государственная '
+                                                                                                                                                                                                    'защитная '
+                                                                                                                                                                                                    'лесополоса '
+                                                                                                                                                                                                    'Черкесск-Элиста-Волгоград'}}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'vegetation',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Государственная '
+                                                                                                                         'защитная '
+                                                                                                                         'лесополоса '
+                                                                                                                         'Черкесск-Элиста-Волгоград'}},
+                                                                       'name': 'Государственная '
+                                                                               'защитная '
+                                                                               'лесополоса '
+                                                                               'Черкесск-Элиста-Волгоград'}},
+                                                        {'GeoObject': {'Point': {'pos': '45.043738 '
+                                                                                        '46.236347'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '42.092485 '
+                                                                                                                 '45.057549',
+                                                                                                  'upperCorner': '47.920961 '
+                                                                                                                 '46.358779'}},
+                                                                       'description': 'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'street',
+                                                                                                                                             'name': 'Р-216'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Р-216'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Р-216',
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU',
+                                                                                                                                                'Thoroughfare': {'ThoroughfareName': 'Р-216'}}},
+                                                                                                                 'kind': 'street',
+                                                                                                                 'precision': 'street',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Р-216'}},
+                                                                       'name': 'Р-216'}},
+                                                        {'GeoObject': {'Point': {'pos': '43.207842 '
+                                                                                        '46.773606'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '42.474548 '
+                                                                                                                 '46.373791',
+                                                                                                  'upperCorner': '43.932774 '
+                                                                                                                 '47.162209'}},
+                                                                       'description': 'Ростовская '
+                                                                                      'область, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Ростовская '
+                                                                                                                                                     'область'},
+                                                                                                                                            {'kind': 'street',
+                                                                                                                                             'name': '60К-8'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Ростовская '
+                                                                                                                                          'область, '
+                                                                                                                                          '60К-8'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Ростовская '
+                                                                                                                                                               'область, '
+                                                                                                                                                               '60К-8',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Ростовская '
+                                                                                                                                                                                                 'область',
+                                                                                                                                                                       'Locality': {'Thoroughfare': {'ThoroughfareName': '60К-8'}}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'street',
+                                                                                                                 'precision': 'street',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Ростовская '
+                                                                                                                         'область, '
+                                                                                                                         '60К-8'}},
+                                                                       'name': '60К-8'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.490358 '
+                                                                                        '47.3968'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.391885 '
+                                                                                                                 '47.389223',
+                                                                                                  'upperCorner': '44.58699 '
+                                                                                                                 '47.4124'}},
+                                                                       'description': 'Кетченеровский '
+                                                                                      'район, '
+                                                                                      'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'area',
+                                                                                                                                             'name': 'Кетченеровский '
+                                                                                                                                                     'район'},
+                                                                                                                                            {'kind': 'hydro',
+                                                                                                                                             'name': 'река '
+                                                                                                                                                     'Передняя '
+                                                                                                                                                     'Элиста'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          'Кетченеровский '
+                                                                                                                                          'район, '
+                                                                                                                                          'река '
+                                                                                                                                          'Передняя '
+                                                                                                                                          'Элиста'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               'Кетченеровский '
+                                                                                                                                                               'район, '
+                                                                                                                                                               'река '
+                                                                                                                                                               'Передняя '
+                                                                                                                                                               'Элиста',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'SubAdministrativeArea': {'Locality': {'Premise': {'PremiseName': 'река '
+                                                                                                                                                                                                                                         'Передняя '
+                                                                                                                                                                                                                                         'Элиста'}},
+                                                                                                                                                                                                 'SubAdministrativeAreaName': 'Кетченеровский '
+                                                                                                                                                                                                                              'район'}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'hydro',
+                                                                                                                 'precision': 'other',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         'Кетченеровский '
+                                                                                                                         'район, '
+                                                                                                                         'река '
+                                                                                                                         'Передняя '
+                                                                                                                         'Элиста'}},
+                                                                       'name': 'река '
+                                                                               'Передняя '
+                                                                               'Элиста'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.605774 '
+                                                                                        '45.887537'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.254541 '
+                                                                                                                 '45.502565',
+                                                                                                  'upperCorner': '44.852954 '
+                                                                                                                 '46.173183'}},
+                                                                       'description': 'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'street',
+                                                                                                                                             'name': '85К-5'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          '85К-5'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               '85К-5',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'Locality': {'Thoroughfare': {'ThoroughfareName': '85К-5'}}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'street',
+                                                                                                                 'precision': 'street',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         '85К-5'}},
+                                                                       'name': '85К-5'}},
+                                                        {'GeoObject': {'Point': {'pos': '44.248981 '
+                                                                                        '45.994493'},
+                                                                       'boundedBy': {'Envelope': {'lowerCorner': '44.122049 '
+                                                                                                                 '45.704612',
+                                                                                                  'upperCorner': '44.262527 '
+                                                                                                                 '46.288497'}},
+                                                                       'description': 'Республика '
+                                                                                      'Калмыкия, '
+                                                                                      'Россия',
+                                                                       'metaDataProperty': {'GeocoderMetaData': {'Address': {'Components': [{'kind': 'country',
+                                                                                                                                             'name': 'Россия'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Южный '
+                                                                                                                                                     'федеральный '
+                                                                                                                                                     'округ'},
+                                                                                                                                            {'kind': 'province',
+                                                                                                                                             'name': 'Республика '
+                                                                                                                                                     'Калмыкия'},
+                                                                                                                                            {'kind': 'street',
+                                                                                                                                             'name': '85К-6'}],
+                                                                                                                             'country_code': 'RU',
+                                                                                                                             'formatted': 'Россия, '
+                                                                                                                                          'Республика '
+                                                                                                                                          'Калмыкия, '
+                                                                                                                                          '85К-6'},
+                                                                                                                 'AddressDetails': {'Country': {'AddressLine': 'Россия, '
+                                                                                                                                                               'Республика '
+                                                                                                                                                               'Калмыкия, '
+                                                                                                                                                               '85К-6',
+                                                                                                                                                'AdministrativeArea': {'AdministrativeAreaName': 'Республика '
+                                                                                                                                                                                                 'Калмыкия',
+                                                                                                                                                                       'Locality': {'Thoroughfare': {'ThoroughfareName': '85К-6'}}},
+                                                                                                                                                'CountryName': 'Россия',
+                                                                                                                                                'CountryNameCode': 'RU'}},
+                                                                                                                 'kind': 'street',
+                                                                                                                 'precision': 'street',
+                                                                                                                 'text': 'Россия, '
+                                                                                                                         'Республика '
+                                                                                                                         'Калмыкия, '
+                                                                                                                         '85К-6'}},
+                                                                       'name': '85К-6'}}],
+                                      'metaDataProperty': {'GeocoderResponseMetaData': {'found': '10',
+                                                                                        'request': 'Элиста',
+                                                                                        'results': '10'}}}}}
+
+Process finished with exit code 0

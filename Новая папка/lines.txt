@@ -1,0 +1,558 @@
+import sys
+from PyQt5 import uic  # Импортируем uic
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QLabel
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QInputDialog
+from PyQt5.QtCore import Qt
+
+moves_made = []
+dop_hps = [0]
+
+
+def radius_moves(n_1):
+    if n_1 <= 168 and n_1 >= 0:
+        return False
+
+    else:
+        return True
+
+
+def wall_or_road(number, side):
+    wal = [0, 1, 7, 8, 9, 13, 17, 18, 19, 21, 25, 27, 28, 29, 33, 35, 37, 39, 43, 45, 46, 51, 53, 55, 59, 62, 64, 65,
+           67, 69, 71, 72, 73, 83, 87, 88, 89, 90, 92, 96, 98, 100, 105, 106, 109, 110, 114, 116, 117, 122, 127, 128,
+           135, 136, 138, 141, 144, 145, 146, 148, 152, 165, 166]
+    not_up = [i for i in range(0, 14)]
+    not_under = [i for i in range(154, 168)]
+    not_left = [i for i in range(0, 156, 14)]
+    not_right = [i for i in range(13, 168, 14)]
+    if side == 'up':
+        if number not in not_up:
+            if (number - 14) in wal or radius_moves(number - 14):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'under':
+        if number not in not_under:
+            if (number + 14) in wal or radius_moves(number + 14):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'left':
+        if number not in not_left:
+            if (number - 1) in wal or radius_moves(number - 1):
+                return False
+        else:
+            return False
+        return True
+
+    elif side == 'right':
+        if number not in not_right:
+            if (number + 1) in wal or radius_moves(number + 1):
+                return False
+        else:
+            return False
+        return True
+
+
+def mob_shading(n, hp):
+    if n == 4 or n == 139 or n == 47 or n == 157 or n == 126 or n == 66 or n == 103:
+        if hp - 15 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 15
+        elif hp - 15 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 57 or n == 111 or n == 36:
+        if hp - 20 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 20
+        elif hp - 20 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 93 or n == 12 or n == 130 or n == 158 or n == 137:
+        if hp - 35 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 35
+        elif hp - 35 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    elif n == 147:
+        if hp - 75 >= 0 and n not in moves_made:
+            moves_made.append(n)
+            return 75
+        elif hp - 75 < 0 and n not in moves_made:
+            return hp
+        else:
+            return 0
+
+    else:
+        return 0
+
+
+class Start_window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('game_labyrinth_start_window_1.ui', self)
+        self.setWindowTitle('Начальное окно')
+        self.game.clicked.connect(self.open_game_window)
+        self.setting.clicked.connect(self.open_setting_window)
+        self.history.clicked.connect(self.open_history_window)
+
+    def open_game_window(self):
+        self.game_window = Labyrinth_game(self)
+        self.game_window.show()
+
+    def open_history_window(self):
+        self.history_window = History(self)
+        self.history_window.show()
+
+    def open_setting_window(self):
+        self.game_window = Setting(self)
+        self.game_window.show()
+
+
+class Labyrinth_game(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('game_labyrinth_game_window_2.ui', self)
+        self.wall = [self.l1, self.l2, self.l3, self.l4, self.l5, self.l6, self.l7, self.l8, self.l9, self.l10,
+                     self.l11, self.l12, self.l13, self.l14, self.l15, self.l16, self.l17, self.l18, self.l19,
+                     self.l20, self.l21, self.l22, self.l23, self.l24, self.l25, self.l26, self.l27, self.l28,
+                     self.l29, self.l30, self.l31, self.l32, self.l33, self.l34, self.l35, self.l36, self.l37,
+                     self.l38, self.l39, self.l40, self.l41, self.l42, self.l43, self.l44, self.l45, self.l46,
+                     self.l47, self.l48, self.l49, self.l50, self.l51, self.l52, self.l53, self.l54, self.l55,
+                     self.l56, self.l57, self.l58, self.l59, self.l60, self.l61, self.l62, self.l63, self.l64,
+                     self.l65, self.l66, self.l67, self.l68, self.l69, self.l70, self.l71, self.l72, self.l73,
+                     self.l74, self.l75, self.l76, self.l77, self.l78, self.l79, self.l80, self.l81, self.l82,
+                     self.l83, self.l84, self.l85, self.l86, self.l87, self.l88, self.l89, self.l90, self.l91,
+                     self.l92, self.l93, self.l94, self.l95, self.l96, self.l97, self.l98, self.l99, self.l100,
+                     self.l101, self.l102, self.l103, self.l104, self.l105, self.l106, self.l107, self.l108,
+                     self.l109, self.l110, self.l111, self.l112, self.l113, self.l114, self.l115, self.l116,
+                     self.l117, self.l118, self.l119, self.l120, self.l121, self.l122, self.l123, self.l124,
+                     self.l125, self.l126, self.l127, self.l128, self.l129, self.l130, self.l131, self.l132,
+                     self.l133, self.l134, self.l135, self.l136,
+                     self.l137, self.l138, self.l139, self.l140, self.l141, self.l142, self.l143, self.l144,
+                     self.l145, self.l146, self.l147, self.l148, self.l149, self.l150, self.l151, self.l152,
+                     self.l153, self.l154, self.l155, self.l156, self.l157, self.l158, self.l159, self.l160,
+                     self.l161, self.l162, self.l163, self.l164, self.l165, self.l166, self.l167, self.l168]
+        self.amount_hp = 100
+        self.damage = 0
+        self.number_initial_move = 14
+        self.number_of_moves = 0
+        self.setWindowTitle('Лабиринт')
+        self.death = Death(self)
+        self.win = Win(self)
+        self.event_1 = Event_1(self)
+        self.event_2 = Event_2(self)
+        self.event_3 = Event_3(self)
+        self.event_4 = Event_4(self)
+        self.event_5 = Event_5(self)
+        self.event_6 = Event_6(self)
+
+        self.hp_dop = 0
+        self.used_event_1 = 0
+        self.used_event_2 = 0
+        self.used_event_3 = 0
+        self.used_event_4 = 0
+        self.used_event_5 = 0
+        self.used_event_6 = 0
+
+        self.pixmap_1 = QPixmap('pixil-frame-0 (1).png')
+        self.l15.setPixmap(self.pixmap_1)
+        self.pixmap_2 = QPixmap('pixil-frame-1.png')
+        self.heart = QPixmap('123.png')
+        self.label_2.setPixmap(self.heart)
+
+        self.flittermouses = QPixmap('pixil-frame-0 (3.png')
+        for i in [4, 139, 47, 157, 126, 66, 103]:
+            self.wall[i].setPixmap(self.flittermouses)
+
+        self.dog = QPixmap('псы.png')
+        for i in [57, 111, 36]:
+            self.wall[i].setPixmap(self.dog)
+
+        self.vampire = QPixmap('вампир.png')
+        for i in [93, 12, 130, 158, 137]:
+            self.wall[i].setPixmap(self.vampire)
+
+        self.aristocrat_vampire = QPixmap('Аристократ вампир.png')
+        for i in [147]:
+            self.wall[i].setPixmap(self.aristocrat_vampire)
+
+        self.up.clicked.connect(self.move_up)
+        self.under.clicked.connect(self.move_under)
+        self.left.clicked.connect(self.move_left)
+        self.right.clicked.connect(self.move_right)
+
+    def move_up(self):
+        if wall_or_road(self.number_initial_move, 'up'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move - 14].setPixmap(self.pixmap_1)
+            self.number_initial_move -= 14
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            if self.amount_hp <= 0:
+                self.death.show()
+                self.hide()
+
+            if self.number_initial_move == 101 and self.used_event_1 == 0:
+                self.used_event_1 += 1
+                self.event_1.show()
+
+            if self.number_initial_move == 40 and self.used_event_3 == 0:
+                self.used_event_3 += 1
+                self.event_3.show()
+
+            if self.number_initial_move == 60 and self.used_event_4 == 0:
+                self.used_event_4 += 1
+                self.event_4.show()
+
+            if len(dop_hps) > 1:
+                self.amount_hp += dop_hps[1]
+                dop_hps.remove(dop_hps[1])
+
+            self.label_3.setText(str(self.amount_hp))
+
+    def move_under(self):
+        if wall_or_road(self.number_initial_move, 'under'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move + 14].setPixmap(self.pixmap_1)
+            self.number_initial_move += 14
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+
+            if self.amount_hp <= 0:
+                self.death.show()
+                self.hide()
+
+            if self.number_initial_move == 154 and self.used_event_2 == 0:
+                self.used_event_2 += 1
+                self.event_2.show()
+
+            if self.number_initial_move == 40 and self.used_event_3 == 0:
+                self.used_event_3 += 1
+                self.event_3.show()
+
+            if self.number_initial_move == 91 and self.used_event_6 == 0:
+                self.used_event_6 += 1
+                self.event_6.show()
+
+            if len(dop_hps) > 1:
+                self.amount_hp += dop_hps[1]
+                dop_hps.remove(dop_hps[1])
+
+            self.label_3.setText(str(self.amount_hp))
+
+    def move_left(self):
+        if wall_or_road(self.number_initial_move, 'left'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move - 1].setPixmap(self.pixmap_1)
+            self.number_initial_move -= 1
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            if self.amount_hp <= 0:
+                self.death.show()
+                self.hide()
+
+            if self.number_initial_move == 101 and self.used_event_1 == 0:
+                self.used_event_1 += 1
+                self.event_1.show()
+
+            if self.number_initial_move == 154 and self.used_event_2 == 0:
+                self.used_event_2 += 1
+                self.event_2.show()
+
+            if self.number_initial_move == 60 and self.used_event_4 == 0:
+                self.used_event_4 += 1
+                self.event_4.show()
+
+            if len(dop_hps) > 1:
+                self.amount_hp += dop_hps[1]
+                dop_hps.remove(dop_hps[1])
+
+            self.label_3.setText(str(self.amount_hp))
+
+    def move_right(self):
+        if wall_or_road(self.number_initial_move, 'right'):
+            self.wall[self.number_initial_move].setPixmap(self.pixmap_2)
+            self.wall[self.number_initial_move + 1].setPixmap(self.pixmap_1)
+            self.number_initial_move += 1
+            self.number_of_moves += 1
+            self.damage = mob_shading(self.number_initial_move, self.amount_hp)
+            self.amount_hp -= self.damage
+            if self.amount_hp <= 0:
+                self.death.show()
+                self.hide()
+
+            if self.number_initial_move == 163 and self.used_event_5 == 0:
+                self.used_event_5 += 1
+                self.event_5.show()
+
+
+            if len(dop_hps) > 1:
+                self.amount_hp += dop_hps[1]
+                dop_hps.remove(dop_hps[1])
+
+            self.label_3.setText(str(self.amount_hp))
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            moves_made.clear()
+            self.close()
+
+class Death(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+
+        self.btn1 = QLabel(self)
+        self.btn1.setText(f'Количесвтво ходов:')
+        self.btn1.move(10, 10)
+
+class Setting(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('Настройки')
+        self.lab = QLabel()
+
+class History(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('История')
+
+
+class Win(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        self.setGeometry(300, 300, 300, 300)
+        self.setWindowTitle('Победа')
+
+
+class Event_1(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_1.ui', self)
+        self.setWindowTitle('Ивент №1')
+        self.dop_hp_full = 0
+
+        self.one_answer = QLineEdit(self)
+        self.one_answer.move(30, 150)
+        self.one_answer.resize(150, 30)
+
+        self.two_answer = QLineEdit(self)
+        self.two_answer.move(30, 310)
+        self.two_answer.resize(150, 30)
+
+        self.answer_full.clicked.connect(self.work)
+        self.answer_3.clicked.connect(self.work_1)
+
+    def work_1(self):
+        answer3, ok_pressed = QInputDialog.getItem(
+            self, "Введите ответ", "Ответ:",
+            ('Шнурки', 'Разговор', 'Наушники', 'Бисерный браслет', 'Морской узел', 'Узел смерти'), 1, False)
+        if ok_pressed:
+            if answer3 == 'Разговор':
+                self.dop_hp_full += 5
+
+        if self.one_answer.text().lower() == 'крышка':
+            self.dop_hp_full += 5
+
+        if self.two_answer.text().lower() == 'часы':
+            self.dop_hp_full += 5
+
+    def work(self):
+        if self.dop_hp_full <= 0:
+            storage_dop_hp(-5)
+        else:
+            storage_dop_hp(self.dop_hp_full)
+        self.close()
+
+
+class Event_2(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_2.ui', self)
+        self.setWindowTitle('Ивент №2')
+
+        self.show_code_1 = Code_1(self)
+
+        self.one_answer_2 = QLineEdit(self)
+        self.one_answer_2.move(110, 340)
+        self.one_answer_2.resize(270, 30)
+
+        self.pushButton.clicked.connect(self.run_1)
+        self.pushButton_2.clicked.connect(self.run_2)
+
+    def run_1(self):
+        self.show_code_1.show()
+
+    def run_2(self):
+        if self.one_answer_2.text().lower() == 'warning = planet':
+            storage_dop_hp(15)
+
+        elif self.one_answer_2.text().lower() == '':
+            storage_dop_hp(-5)
+
+        else:
+            storage_dop_hp(0)
+        self.close()
+
+
+class Code_1(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('code_1.ui', self)
+        self.setWindowTitle('Код №1')
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.close()
+
+
+class Event_3(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_3.ui', self)
+        self.setWindowTitle('Ивент №3')
+
+        self.show_code_2 = Code_2(self)
+
+        self.one_answer_3 = QLineEdit(self)
+        self.one_answer_3.move(110, 340)
+        self.one_answer_3.resize(270, 30)
+
+        self.pushButton.clicked.connect(self.run_1)
+        self.pushButton_2.clicked.connect(self.run_2)
+
+    def run_1(self):
+        self.show_code_2.show()
+
+    def run_2(self):
+        if self.one_answer_3.text().lower() == 'answer = planet':
+            storage_dop_hp(15)
+
+        elif self.one_answer_3.text().lower() == '':
+            storage_dop_hp(-5)
+
+        else:
+            storage_dop_hp(0)
+        self.close()
+
+
+class Code_2(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('code_2.ui', self)
+        self.setWindowTitle('Код №2')
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.close()
+
+
+class Event_4(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_4.ui', self)
+        self.setWindowTitle('Ивент №4')
+
+        self.one_answer_4 = QLineEdit(self)
+        self.one_answer_4.move(150, 220)
+        self.one_answer_4.resize(270, 30)
+
+        self.pushButton_4.clicked.connect(self.run)
+
+    def run(self):
+        amount_number_pi = 0
+        count = 0
+        a = [1, 14, 141, 1415, 14159, 141592, 1415926, 14159265, 141592653, 1415926535]
+        if '.' in self.one_answer_4.text() or '/' in self.one_answer_4.text() or ',' in self.one_answer_4.text():
+            raise ValueError('Некорректный ввод чисел. Только целое значение.')
+
+        for i in range(len(self.one_answer_4.text())):
+            if i < 10:
+                if str(self.one_answer_4.text())[i] == str(a[-1])[i] and i == count:
+                    count += 1
+                    amount_number_pi += 2
+        storage_dop_hp(amount_number_pi)
+        self.close()
+
+
+class Event_5(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_5.ui', self)
+        self.setWindowTitle('Ивент №5')
+        self.s = QPixmap('dveri2.png')
+        self.doors.setPixmap(self.s)
+
+        self.answer_fulls.clicked.connect(self.works)
+
+    def works(self):
+        number, ok_pressed = QInputDialog.getItem(
+    self, "Номер", "Введите номер:",
+    ("1", "2", "3"), 1, False)
+        if ok_pressed:
+            if number == str(2):
+                storage_dop_hp(15)
+            else:
+                storage_dop_hp(0)
+        self.close()
+
+
+class Event_6(QMainWindow):
+    def __init__(self, *args):
+        super().__init__()
+        uic.loadUi('event_6.ui', self)
+        self.setWindowTitle('Ивент №6')
+
+        self.one = QLineEdit(self)
+        self.one.move(110, 180)
+        self.one.resize(150, 30)
+
+        self.two = QLineEdit(self)
+        self.two.move(110, 370)
+        self.two.resize(150, 30)
+
+        self.answer_full.clicked.connect(self.work)
+
+    def work(self):
+        dop_hp_ful = 0
+        if self.one.text() == '1991':
+            dop_hp_ful += 10
+        if self.two.text() == '2000':
+            dop_hp_ful += 10
+
+        storage_dop_hp(dop_hp_ful)
+        self.close()
+
+
+def storage_dop_hp(a):
+    dop_hps.append(a)
+
+
+def except_hook(cls, exception, traceback):
+    sys.__excepthook__(cls, exception, traceback)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Start_window()
+    ex.show()
+    sys.excepthook = except_hook
+    sys.exit(app.exec_())

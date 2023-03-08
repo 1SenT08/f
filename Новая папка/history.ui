@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>871</width>
+    <height>697</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 16pt;
+	font-weight: 600;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>    Главный герой - Валера, был заядлым картежником и наркоманом. На свои так называемые</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="va">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>480</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Выйти</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>20</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	font-size: 22pt;
+}</string>
+    </property>
+    <property name="text">
+     <string>История</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>&quot;интересы&quot; он тратил все свои деньги и из-за этого влез в долги. Чтобы, заработать деньги</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>и закрыть свои долги, он пошел на сделку с какими-то таинственными существами. Их договор </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>был прост: &quot;Мы тебе даем чрезмерное богатство, но через 10 лет заберем тебя.&quot; Он все 10 лет </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>живёт мирно - завел семью и жил счастливо. Но вдруг, его забирают и отвозят в загадочный</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>851</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	color: white;
+	background-color: #101010;
+	font-family: Rubik;
+	font-size: 12pt;
+	font-weight: 600;
+}</string>
+    </property>
+    <property name="text">
+     <string>лабиринт. Его задача выбраться, иначе он погибнет.</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>871</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
